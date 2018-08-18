@@ -22,3 +22,8 @@ Important libraries to import are:
 
 <br><b>Mongoose Random:</b> Used to choose the random document from the chosen mongoose collection.
 <br>npm install mongoose-random <br>
+
+Below are some details, change as per your need:
+<br>Mongo Database Name used: quoteGeneratorDB
+<br>Collection Name: quotes
+<br>Collection structure: quote(String), author(String), quotetype(enum['love', 'inspirational', 'patriotic'])
