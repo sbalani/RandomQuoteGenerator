@@ -27,3 +27,6 @@ Below are some details, change as per your need:
 <br>Mongo Database Name used: quoteGeneratorDB
 <br>Collection Name: quotes
 <br>Collection structure: quote(String), author(String), quotetype(enum['love', 'inspirational', 'patriotic'])
+
+
+Here is a <a href="https://github.com/isunnyjaiswal/PubSubNodeJS">link</a> to the next project that I made building up on this knowledge.
