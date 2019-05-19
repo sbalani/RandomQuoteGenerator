@@ -29,4 +29,4 @@ Below are some details, change as per your need:
 <br>Collection structure: quote(String), author(String), quotetype(enum['love', 'inspirational', 'patriotic'])
 
 
-Here is a <a href="https://github.com/isunnyjaiswal/PubSubNodeJS">link</a> to the next project that I made building up on this knowledge.
+Here is a <b><u><a href="https://github.com/isunnyjaiswal/PubSubNodeJS">link</a></b></u> to the next project that I made building up on this knowledge.
