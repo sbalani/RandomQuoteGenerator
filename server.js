@@ -7,7 +7,7 @@ var express = require('express'),
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/quoteGeneratorDB'); 
+mongoose.connect('mongodb+srv://sbalani:malaga123@cluster0.uuhej.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'); 
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
