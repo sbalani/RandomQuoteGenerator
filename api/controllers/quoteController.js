@@ -1,10 +1,8 @@
-'use strict';
-
+var mongoose = require('mongoose');
 var MongoClient = require('mongodb').MongoClient;
 var random = require('mongoose-random');
-var mongoose = require('mongoose'),
-  Quote = mongoose.model('Quotes');
-  var url = "mongodb://localhost:27017/";
+Quote = mongoose.model('Quote');
+//  var url = "mongodb://localhost:27017/";
   
 /*   
 function getData(db, res){
@@ -16,16 +14,45 @@ function getData(db, res){
 } ]).result[0];
 }   */
 
+
+
+
 exports.list_rand_quote = function(req, res) {
 //	MongoClient.connect(url, function(err, db) {
 	//var dbo = db.db("quoteGeneratorDB");
 	
-	
+	/*
 	Quote.findRandom().limit(1).exec(function (err, songs) {
 	if (err) throw err;
 	res.json(songs)
 	console.log(songs);
-});
+  */
+  async function randquote(){
+    console.log("inside randquote");
+    //const someQuote = await Quote.findOne({});
+    
+    await Quote.findOne({},'quote').exec(function(err,songs){if (err) throw err;
+      res.json(songs)
+      console.log(songs);
+    });
+    
+    console.log("findone done:");
+    
+    //console.log("findone done:" + someQuote);
+    //return someQuote;
+    }
+
+
+  console.log("being called");
+randquote();
+
+
+
+
+
+
+
+};
 	
 	
 	//below code can fetch the first document of the collection
@@ -49,7 +76,7 @@ exports.list_rand_quote = function(req, res) {
     res.json(randomDoc);
   }); */
 //})
-}	;
+
 
 
 

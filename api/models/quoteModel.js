@@ -1,26 +1,33 @@
 'use strict';
 var mongoose = require('mongoose');
 var random = require('mongoose-random');
-var Schema = mongoose.Schema;
+//var Schema = mongoose.Schema;
 
+const { Schema } = mongoose;
 
+/*
 var QuoteSchema = new Schema({
   quote: {
     type: String,
-    required: 'Kindly enter the quote text.'
   },
   author: {
     type: String,
-    default: 'Anonymous'
   },
   quotetype: {
-    type: [{
       type: String,
-      enum: ['love', 'inspirational', 'patriotic']
-    }],
-    default: ['love']
-  }
-});
-QuoteSchema.plugin(random, { path: 'random' });
+    }
+});*/
 
-module.exports = mongoose.model('Quotes', QuoteSchema);
+const quoteSchema = new Schema({
+quote: String,
+author: String,
+quotetype: String
+}, {collection: 'Quotes'});
+
+const Quote = mongoose.model('Quote', quoteSchema);
+console.log("Quote:" + Quote);
+quoteSchema.plugin(random, { path: 'random' });
+
+//module.exports = mongoose.model('Quotes', QuoteSchema);
+
+module.exports = Quote;
