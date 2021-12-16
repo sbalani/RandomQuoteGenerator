@@ -43,5 +43,5 @@ const all = await Quote.find(filter);
 console.log("all:" + all)
 }
 
-filterget();
+//filterget();
 //console.log("quotess:" + quotess);

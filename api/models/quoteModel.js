@@ -24,10 +24,10 @@ author: String,
 quotetype: String
 }, {collection: 'Quotes'});
 
-const Quote = mongoose.model('Quote', quoteSchema);
-console.log("Quote:" + Quote);
+//const Quote = mongoose.model('Quote', quoteSchema);
+//console.log("Quote:" + Quote);
 quoteSchema.plugin(random, { path: 'random' });
 
-//module.exports = mongoose.model('Quotes', QuoteSchema);
+module.exports = mongoose.model('Quote', quoteSchema);
 
-module.exports = Quote;
+//module.exports = Quote;

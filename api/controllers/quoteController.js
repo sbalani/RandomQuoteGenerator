@@ -1,37 +1,31 @@
 var mongoose = require('mongoose');
 var MongoClient = require('mongodb').MongoClient;
 var random = require('mongoose-random');
+const model = require('../models/quoteModel');
 Quote = mongoose.model('Quote');
-//  var url = "mongodb://localhost:27017/";
+var util = require('util');
+
+
+console.log("being called");
+//console.log("model:" + model);
+
+
+
   
-/*   
-function getData(db, res){
-	db.getCollection("Quotes").aggregate([ 
-, {
-    $sample : {
-        size : 1
-    }
-} ]).result[0];
-}   */
+
 
 
 
 
 exports.list_rand_quote = function(req, res) {
-//	MongoClient.connect(url, function(err, db) {
-	//var dbo = db.db("quoteGeneratorDB");
-	
-	/*
-	Quote.findRandom().limit(1).exec(function (err, songs) {
-	if (err) throw err;
-	res.json(songs)
-	console.log(songs);
-  */
+
+  
+  //console.log(util.inspect(res));
   async function randquote(){
     console.log("inside randquote");
     //const someQuote = await Quote.findOne({});
     
-    await Quote.findOne({},'quote').exec(function(err,songs){if (err) throw err;
+    await Quote.findOne({quotetype: "inspirational"},'quote').exec(function(err,songs){if (err) throw err;
       res.json(songs)
       console.log(songs);
     });
@@ -44,40 +38,42 @@ exports.list_rand_quote = function(req, res) {
 
 
   console.log("being called");
-randquote();
+
+
+  async function getRandQuote2(){
+
+    const count = await Quote.count()
+    console.log("count:" + count);
+    var random = Math.floor(Math.random() * count);
+    const randquote = await Quote.findOne().skip(random);
+    console.log(randquote);
+    //return randquote ;
+    res.json(randquote);
+    
+  
+  
+  
+    /*
+    const filter = {};
+    const randquote = await Quote.findOne(filter);
+    console.log("gotone" + randquote);
+  */  
+  }
 
 
 
 
 
 
+
+
+
+//randquote();
+getRandQuote2();
 
 };
 	
 	
-	//below code can fetch the first document of the collection
-	/* dbo.collection("quotes").findOne({}, function(err, result) {
-    if (err) throw err;
-	res.json(result);
-    console.log(result);
-    db.close();
-  }); */
-  //above code can fetch the first document of the collection
-  
-	/* var randomDoc = db.getCollection("Quotes").aggregate([ 
-, {
-    $sample : {
-        size : 1
-    }
-} ]).result[0];
-  Quote.find({}, function(err, randomDoc) {
-    if (err)
-      res.send(err);
-    res.json(randomDoc);
-  }); */
-//})
-
-
 
 
 
