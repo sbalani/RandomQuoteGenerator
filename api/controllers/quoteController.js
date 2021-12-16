@@ -45,7 +45,7 @@ exports.list_rand_quote = function(req, res) {
     const count = await Quote.count()
     console.log("count:" + count);
     var random = Math.floor(Math.random() * count);
-    const randquote = await Quote.findOne().skip(random);
+    const randquote = await Quote.findOne({},'Quote').skip(random);
     console.log(randquote);
     //return randquote ;
     res.json(randquote);
